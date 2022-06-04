@@ -1,2 +1,5 @@
-export FLASK_ENV=development
-export FLASK_APP=app
+export FLASK_ENV=production
+export FLASK_APP=run
+SECRET_KEY="dev"
+MONGO_PWD="Awwal123"
+JWT_SECRET_KEY='JWT_SECRET_KEY'

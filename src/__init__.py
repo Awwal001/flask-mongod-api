@@ -14,7 +14,8 @@ def create_app(test_config=None):
     if test_config is None:
          app.config.from_mapping(
             SECRET_KEY=os.environ.get("SECRET_KEY"),
-           JWT_SECRET_KEY=os.environ.get('JWT_SECRET_KEY'),
+            JWT_SECRET_KEY=os.environ.get('JWT_SECRET_KEY'),
+            MONGO_URI=os.environ.get('MONGO_URI'),
 
         )
     else:
@@ -25,6 +26,9 @@ def create_app(test_config=None):
     app.register_blueprint(templateRoutes)
 
     # Swagger(app, config=swagger_config, template=template)
+    @app.get('/')
+    def home():
+        return "Sloovi API"
 
     @app.errorhandler(HTTP_404_NOT_FOUND)
     def handle_404(e):
@@ -37,4 +41,3 @@ def create_app(test_config=None):
 
     return app
 
-create_app()
