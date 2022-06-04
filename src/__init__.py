@@ -15,7 +15,7 @@ def create_app(test_config=None):
          app.config.from_mapping(
             SECRET_KEY=os.environ.get("SECRET_KEY"),
             JWT_SECRET_KEY=os.environ.get('JWT_SECRET_KEY'),
-            MONGO_URI=os.environ.get('MONGO_URI'),
+            # MONGO_URI=os.environ.get('MONGO_URI'),
 
             SWAGGER={
                 'title': "Bookmarks API",
