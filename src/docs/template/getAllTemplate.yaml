@@ -1,0 +1,15 @@
+Gets all Templates
+---
+tags:
+  - Templates
+parameters:
+  - in: path
+    name: getall
+    required: true
+
+responses:
+  200:
+    description: When all templates have been retrieved
+
+  404:
+    description: Record was not found

@@ -3,7 +3,7 @@ from flask.json import jsonify
 from src.db import db1
 from bson import ObjectId
 from flask_jwt_extended import get_jwt_identity, jwt_required
-# from flasgger import swag_from
+from flasgger import swag_from
 from src.constants.http_status_codes import HTTP_200_OK, HTTP_201_CREATED, HTTP_404_NOT_FOUND
 
 
@@ -11,7 +11,7 @@ templateRoutes = Blueprint("templateRoutes", __name__, url_prefix="/api/template
 
 @templateRoutes.route('/', methods=['POST'])
 @jwt_required()
-# @swag_from('./docs/template/createTemplate.yaml')
+@swag_from('./docs/template/createTemplate.yaml')
 def create_template():
 
     template_name = request.json["template_name"]
@@ -28,7 +28,7 @@ def create_template():
 
 @templateRoutes.route('/', methods=['GET'])
 @jwt_required()
-# @swag_from('./docs/template/getAllTemplate.yaml')
+@swag_from('./docs/template/getAllTemplate.yaml')
 def get_templates():
     if request.method == "GET":
         templates =[]
@@ -40,7 +40,7 @@ def get_templates():
 
 @templateRoutes.route('/<id>',methods=["PUT"])
 @jwt_required()
-# @swag_from('./docs/template/updateTemplate.yaml')
+@swag_from('./docs/template/updateTemplate.yaml')
 def update_template(id):
    
     template = db1.find_one({"_id":ObjectId(id)})
@@ -58,7 +58,7 @@ def update_template(id):
 
 @templateRoutes.route('/<id>',methods=["DELETE"])
 @jwt_required()
-# @swag_from('./docs/template/deleteTemplate.yaml')
+@swag_from('./docs/template/deleteTemplate.yaml')
 def delete_template(id):
 
     template = db1.find_one({"_id":ObjectId(id)})
@@ -75,7 +75,7 @@ def delete_template(id):
 
 @templateRoutes.route('/<id>',methods=["GET"])
 @jwt_required()
-# @swag_from('./docs/template/getTemplate.yaml')
+@swag_from('./docs/template/getTemplate.yaml')
 def get_template(id):
     template = db1.find_one({"_id":ObjectId(id)})
 

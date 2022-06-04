@@ -1,0 +1,30 @@
+Updates a Single Template
+---
+tags:
+  - Templates
+parameters:
+  - in: body
+    name: updateone
+    required: true
+    schema:
+      type: object
+      required:
+        - "template_name"
+        - "subject"
+        - "body"
+      properties:
+        template_name:
+          type: "string"
+          example: "template"
+        subject:
+          type: "string"
+          example: "subject"
+        body:
+          type: "body"
+          example: "body"
+responses:
+  200:
+    description: When a template has been updated
+
+  404:
+    description: Record was not found

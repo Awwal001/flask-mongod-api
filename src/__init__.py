@@ -5,8 +5,8 @@ from src.db import app
 from src.authRoutes import authRoutes
 from src.templateRoutes import templateRoutes
 from src.constants.http_status_codes import HTTP_404_NOT_FOUND, HTTP_500_INTERNAL_SERVER_ERROR
-# from flasgger import Swagger, swag_from
-# from src.config.swagger import template, swagger_config
+from flasgger import Swagger, swag_from
+from src.config.swagger import template, swagger_config
 
 def create_app(test_config=None):
 
@@ -17,6 +17,11 @@ def create_app(test_config=None):
             JWT_SECRET_KEY=os.environ.get('JWT_SECRET_KEY'),
             MONGO_URI=os.environ.get('MONGO_URI'),
 
+            SWAGGER={
+                'title': "Bookmarks API",
+                'uiversion': 3
+            }
+
         )
     else:
         app.config.from_mapping(test_config)
@@ -25,7 +30,7 @@ def create_app(test_config=None):
     app.register_blueprint(authRoutes)
     app.register_blueprint(templateRoutes)
 
-    # Swagger(app, config=swagger_config, template=template)
+    Swagger(app, config=swagger_config, template=template)
     @app.get('/')
     def home():
         return "Sloovi API"

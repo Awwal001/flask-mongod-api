@@ -1,0 +1,15 @@
+Deletes a Single Template
+---
+tags:
+  - Templates
+parameters:
+  - in: path
+    name: deleteone
+    required: true
+
+responses:
+  200:
+    description: When a template has been deleted
+
+  404:
+    description: Record was not found
