@@ -10,6 +10,7 @@ from src.constants.http_status_codes import HTTP_200_OK, HTTP_201_CREATED, HTTP_
 authRoutes = Blueprint("authRoutes", __name__, url_prefix="/api/auth")
 
 @authRoutes.route('/register', methods=['POST'])
+@swag_from('./docs/auth/register.yaml')
 def create_user():
     if request.method == "POST":
 
@@ -37,7 +38,7 @@ def create_user():
 
 
 @authRoutes.route('/login',methods=["POST"])
-# @swag_from('./docs/auth/login.yaml')
+@swag_from('./docs/auth/login.yaml')
 def login():
 
     email = request.json["email"]

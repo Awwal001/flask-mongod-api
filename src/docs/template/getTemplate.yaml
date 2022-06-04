@@ -1,0 +1,15 @@
+Gets a Single Template
+---
+tags:
+  - Templates
+parameters:
+  - in: path
+    name: getone
+    required: true
+
+responses:
+  200:
+    description: When a single template has been retrieved
+
+  404:
+    description: Record was not found
