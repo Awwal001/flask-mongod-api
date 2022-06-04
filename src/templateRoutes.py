@@ -7,7 +7,7 @@ from flasgger import swag_from
 from src.constants.http_status_codes import HTTP_200_OK, HTTP_201_CREATED, HTTP_404_NOT_FOUND
 
 
-templateRoutes = Blueprint("templateRoutes", __name__, url_prefix="/api/template")
+templateRoutes = Blueprint("templateRoutes", __name__, url_prefix="/template")
 
 @templateRoutes.route('/', methods=['POST'])
 @jwt_required()

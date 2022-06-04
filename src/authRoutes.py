@@ -7,7 +7,7 @@ from flasgger import swag_from
 from src.constants.http_status_codes import HTTP_200_OK, HTTP_201_CREATED, HTTP_401_UNAUTHORIZED, HTTP_409_CONFLICT, HTTP_404_NOT_FOUND
 
 
-authRoutes = Blueprint("authRoutes", __name__, url_prefix="/api/auth")
+authRoutes = Blueprint("authRoutes", __name__, url_prefix="/auth")
 
 @authRoutes.route('/register', methods=['POST'])
 @swag_from('./docs/auth/register.yaml')
